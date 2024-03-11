@@ -3,33 +3,32 @@ import next from "next";
 
 const ReviewComponents: React.FC = () => {
   return (
-    <main className="max-w-4xl mx-auto  ">
+    <main className="">
+      <div className="grid gap-4 grid-cols-2 p-8">
+        <div className=" bg-white gap-5 p-4 rounded-lg shadow-md ">
+          <div className="text-lg font-semibold">Great Product!</div>
+          <p className="text-gray-500">by John Doe</p>
+          <p className="mt-2">
+            I really enjoyed using this product. It's amazing!
+          </p>
+        </div>
 
-      <div className= " grid gap-4 grid-row-3 p-8 ">
-       
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        {/* Second review */}
+        <div className=" bg-white gap-5 p-4 rounded-lg shadow-md ">
+          <div className="text-lg font-semibold">Awesome Service!</div>
+          <p className="text-gray-500">by Jane Smith</p>
+          <p className="mt-2">
+            This service exceeded my expectations. Highly recommended!
+          </p>
+        </div>
 
-       
-            {/* Example review */}
-      
-              <div className="flex ">
-                <div className="flex-1">
-                  <div className="text-lg font-semibold">Great Product!</div>
-                  <p className="text-gray-500">by John Doe</p>
-                  <p className="mt-2">I really enjoyed using this product. It's amazing!</p>
-                </div>
-              </div>
-           
-              <div className="flex space-x-4">
-                <div className="flex-1">
-                  <div className="text-lg font-semibold">Great Product!</div>
-                  <p className="text-gray-500">by John Doe</p>
-                  <p className="mt-2">I really enjoyed using this product. It's amazing!</p>
-                </div>
-              </div>
-         
-            {/* More reviews go here */}
-          
+        {/* Third review */}
+        <div className=" bg-white gap-5 p-4 rounded-lg shadow-md ">
+          <div className="text-lg font-semibold">Excellent Experience!</div>
+          <p className="text-gray-500">by Michael Johnson</p>
+          <p className="mt-2">
+            I had a fantastic experience with this product. Will buy again!
+          </p>
         </div>
       </div>
 

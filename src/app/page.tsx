@@ -3,24 +3,16 @@ import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import BagModal from "./Components/modal";
+import { TbCurrencyNaira } from "react-icons/tb";
 import HomeComponents from "./Components/homeComponents";
 import QuantityDropdown from "./Components/quantity";
+import Colorpage from "./Color/page";
 
 function Homepage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleBagBtn = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="bg-[#ecebe4] min-h-screen pt-5 px-24 font-[poppins] ">
+    <div className="bg-[#ecebe4] min-h-screen pt-5 px-24 font-[poppins]  ">
       <HomeComponents />
-      <div className="flex justify-center items-center pt-5 gap-32 ">
+      <div className="flex justify-center items-center  gap-32 ">
         {/* LEFT */}
         <div className="flex flex-col gap-4  ">
           <img
@@ -57,7 +49,10 @@ function Homepage() {
           <h1 className=" font-extrabold text-3xl font-mono ">
             LUMINOUS LIGHT BULB
           </h1>
-          <p className=" text-[#6c6a6a93] font-light text-xl pb-5">N300</p>
+          <p className=" flex text-[#6c6a6a93] font-light text-xl pb-5">
+            <TbCurrencyNaira />
+            300
+          </p>
           <p className="pb-4">
             Microsoft and our third-party vendors<br></br> use cookies to store
             and access information.
@@ -65,18 +60,14 @@ function Homepage() {
           <div className=" flex  ">
             <p>Select quantity:</p>
             <QuantityDropdown />
-            </div>
-                  
-          
-          <button
-            className=" mt-5 bg-[#1c1c1c] text-white w-28 h-9 rounded-md hover:bg-[#3e3e3e]  "
-            onClick={handleBagBtn}
-          >
+          </div>
+          <Colorpage />
+
+          <button className=" mt-5 bg-[#1c1c1c] text-white w-28 h-9 rounded-md hover:bg-[#3e3e3e]  ">
             Add to bag
           </button>
         </div>
       </div>
-      {isModalOpen && <BagModal onClose={closeModal} />}
     </div>
   );
 }
