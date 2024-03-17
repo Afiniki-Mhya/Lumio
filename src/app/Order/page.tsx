@@ -3,6 +3,7 @@ import React from "react";
 import products, { Product } from "../Order/product";
 
 const CheckoutPage: React.FC = () => {
+  
   return (
     <div className="min-h-screen bg-[#ecebe4] flex pt-4 justify-center gap-12  ">
       <h1 className="text-2xl font-bold mb-4 text-center ">Checkout</h1>
