@@ -1,25 +1,33 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewForm from "./ReviewForm/page";
 import { auth, firestore } from "../Firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-// import { collectAppConfig, collectionData } from "next/dist/build/utils";
 import ReviewComponents from "../Components/reviewComponents";
 import { MdOutlineRateReview } from "react-icons/md";
 
-async function Reviewpage() {
+async function fetchReviews() {
+  const querySnapshot = await getDocs(collection(firestore, "reviews"));
+  const reviews = querySnapshot.docs.map((doc) => doc.data());
+  return reviews;
+}
+
+const Reviewpage: React.FC = () => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const [reviews, setReviews] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function loadReviews() {
+      const reviewsData = await fetchReviews();
+      setReviews(reviewsData);
+    }
+    loadReviews();
+  }, []);
 
   const togglePopUp = () => {
     setShowPopUp(!showPopUp);
   };
-
-  const querySnapshot = await getDocs(collection(firestore, "reviews"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
   
-
   return (
     <main className="bg-[#ecebe4] min-h-screen flex justify-center ">
       <div className="max-w-screen-lg mx-auto">

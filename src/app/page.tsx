@@ -17,7 +17,7 @@ function Homepage() {
   const searchParams = useSearchParams();
 
   return (
-    <div className="bg-[#ecebe4] min-h-screen pt-5 px-24 font-[poppins]  ">
+    <div className="bg-[#ecebe4] min-h-screen pt-5 px-24 font-[poppins] p-4  ">
       <HomeComponents />
       <div className="flex justify-center items-center flex-col md:flex-row gap-6 md:gap-32 ">
         {/* LEFT */}
@@ -99,7 +99,7 @@ function Homepage() {
           </h1>
           <p className=" flex text-[#6c6a6a93] font-light text-xl pb-5">
             <TbCurrencyNaira />
-            300
+            13,000
           </p>
           <p className="pb-4">
             Microsoft and our third-party vendors<br></br> use cookies to store

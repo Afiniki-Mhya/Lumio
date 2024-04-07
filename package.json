@@ -11,7 +11,7 @@
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "firebase": "^10.8.1",
-    "framer-motion": "^11.0.12",
+    "framer-motion": "^11.0.14",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",

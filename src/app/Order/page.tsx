@@ -1,157 +1,105 @@
-// pages/checkout.tsx
 import React from "react";
 import products, { Product } from "../Order/product";
+import CheckoutPage from "./Checkout/page";
 
-const CheckoutPage: React.FC = () => {
-  
+const DetailsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#ecebe4] flex pt-4 justify-center gap-12  ">
-      <h1 className="text-2xl font-bold mb-4 text-center ">Checkout</h1>
-      <div className="max-w-md w-full flex flex-col pt-12 ">
-        {/* <p>Kindly fill out personal information for this order</p> */}
-        <form className=" pt-14 grid grid-cols-2 gap-3">
+    <div className="min-h-screen bg-[#ecebe4] flex flex-col justify-center items-center p-6">
+      <h1 className="text-3xl font-bold mb-8 text-center">Order Details</h1>
+      <div className="max-w-4xl w-full flex flex-col md:flex-row gap-8 bg-white rounded-lg shadow-md p-8">
+        <div className="w-full md:w-1/2">
+          <CheckoutPage />
+        </div>
+        <hr className="my-6 border-gray-300 md:hidden" />
+        <form className="w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
               Name
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="address" className="block text-gray-700 font-semibold mb-2">
               Address
             </label>
             <input
               type="text"
               id="address"
               name="address"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="city"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="city" className="block text-gray-700 font-semibold mb-2">
               City
             </label>
             <input
               type="text"
               id="city"
               name="city"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="zip"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="zip" className="block text-gray-700 font-semibold mb-2">
               ZIP Code
             </label>
             <input
               type="text"
               id="zip"
               name="zip"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="country"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="country" className="block text-gray-700 font-semibold mb-2">
               Country
             </label>
             <select
               id="country"
               name="country"
-              className="mt-1 p-2 block w-full rounded-md border border-gray-300"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="">Select Country</option>
               <option value="US">United States</option>
               <option value="CA">Canada</option>
               <option value="UK">United Kingdom</option>
-              {/* Add more countries as needed */}
             </select>
           </div>
-          <div>
+          <div className="col-span-2 text-center">
             <button
               type="submit"
-              className="bg-[#1c1c1c] text-white px-4 py-2 my-3 rounded-md hover:bg-[#3e3e3e]"
+              className="bg-[#1c1c1c] text-white px-6 py-3 rounded-md hover:bg-[#3e3e3e] transition-colors duration-300"
             >
               Place Order
             </button>
           </div>
         </form>
       </div>
-
-      {/*  */}
-      {/* <div>
-        <div className="max-w-md   mt-8 p-6 border border-gray-300 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
-          <div className="mb-4">
-            <label
-              htmlFor="product"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Select Product
-            </label>
-            <select
-              id="product"
-              name="product"
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-              required
-            >
-              <option value="">Select Product</option>
-              {products.map((product: Product) => (
-                <option key={product.id} value={product.id.toString()}>
-                  {product.name} - ${product.price}
-                </option>
-              ))}
-            </select>
-          </div>
-       
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-          >
-            Place Order
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 };
 
-export default CheckoutPage;
+export default DetailsPage;
